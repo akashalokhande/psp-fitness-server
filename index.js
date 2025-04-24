@@ -13,13 +13,10 @@ app.use(bodyParser.json());
 
 // MongoDB Connection
 mongoose
-  .connect(
-    "mongodb+srv://akashlok97:mHhYnlOUq3qXh4Zw@restaurantdata.muafidi.mongodb.net/fitnessClub",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect("mongodb://localhost:27017/fitnessClub", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.log("❌ MongoDB connection error:", err));
 
@@ -76,9 +73,11 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
-app.get("/popup", async (req, res) => {
-  res.status(200).json({ msg: "hello this my frist api" });
-});
+
+
+app.get("/popup",async(req,res)=>{
+   res.status(200).json({msg:"hello this my frist api"})
+})
 // 🔐 Signup Route
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
@@ -161,6 +160,7 @@ app.post("/api/payment", async (req, res) => {
   }
 });
 
+
 // 👮 Admin login
 app.post("/api/admin-login", (req, res) => {
   const { username, password } = req.body;
@@ -224,6 +224,7 @@ app.get("/api/userPlan/:userId", async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
+
 
 // Start Server
 app.listen(PORT, () => {
