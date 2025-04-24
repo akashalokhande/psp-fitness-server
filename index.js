@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const MONGODB_URI = "mongodb://127.0.0.1:27017/Empolydata";
+const MONGODB_URI = "mongodb://127.0.0.1:27017/fitnessClub";
 
 // Setup
 const app = express();
