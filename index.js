@@ -6,7 +6,7 @@ const MONGODB_URI = "mongodb://127.0.0.1:27017/fitnessClub";
 
 // Setup
 const app = express();
-const PORT = process.env.PORT || 6000;
+const PORT = 6000;
 
 // Middleware
 app.use(cors());
